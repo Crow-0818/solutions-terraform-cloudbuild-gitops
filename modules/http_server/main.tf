@@ -42,3 +42,8 @@ resource "google_compute_instance" "http_server" {
   # Apply the firewall rule to allow external IPs to access this instance
   tags = ["http-server"]
 }
+
+resource "google_monitoring_monitored_project" "primary" {
+  metrics_scope = "locations/global/metricsScopes/590750687373"
+  name          = "locations/global/metricsScopes/590750687373/projects/590750687373"
+}
