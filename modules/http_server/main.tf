@@ -42,3 +42,8 @@ resource "google_compute_instance" "http_server" {
   # Apply the firewall rule to allow external IPs to access this instance
   tags = ["http-server"]
 }
+
+resource "google_monitoring_monitored_project" "primary" {
+  metrics_scope = "${var.subnet}"      # 使用專案 ID 作為 metrics_scope
+  name          = "${var.subnet}-test" # 使用專案名稱作為 name
+}
